@@ -1,0 +1,59 @@
+name: duka_app
+description: A Duka App for shopping
+version: 1.1.0+5
+
+
+
+environment:
+  sdk: ">=2.19.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.0
+  firebase_core: ^3.15.2
+  firebase_messaging: ^15.0.0
+  flutter_local_notifications: ^18.0.1
+  cloud_firestore: ^5.6.12
+  firebase_auth: ^5.7.0
+  image_picker: ^1.0.5
+  firebase_storage: ^12.4.10
+  video_player: ^2.8.2
+  http: 0.13.6
+  flutter_image_compress: ^2.1.0
+  pdf: ^3.11.3
+  saver_gallery: ^3.0.6
+  dio: ^5.4.0
+  path_provider: ^2.1.2
+  url_launcher: ^6.1.7
+  open_file: ^3.2.1
+  font_awesome_flutter: ^10.4.0
+  
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_native_splash: ^2.3.6
+  flutter_launcher_icons: ^0.14.4
+  intl: ^0.20.2
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/dmjklogo.png
+    - assets/images/branding.jpeg
+    - assets/fonts/Roboto-VariableFont_wdth,wght.ttf
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/dmjklogo.png"
+
+flutter_native_splash:
+  color: "#d0f0c0" 
+  android: true
+  ios: true
+  fullscreen: true
+

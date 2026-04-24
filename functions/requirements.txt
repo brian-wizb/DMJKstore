@@ -1,0 +1,8 @@
+firebase_functions~=0.1.0
+torch
+clip-by-openai
+Pillow
+firebase-admin
+scikit-learn
+requests
+functions-framework

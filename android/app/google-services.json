@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "688885675400",
+    "project_id": "makyaraforum",
+    "storage_bucket": "makyaraforum.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688885675400:android:f96bc1c81d5fdad327b63d",
+        "android_client_info": {
+          "package_name": "com.dmjk.duka_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688885675400-arr17i5iadantcv8b6upq3t1barm0781.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2E69A8PyxwCANpaSouxw4uuzOI1b7Dtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688885675400-arr17i5iadantcv8b6upq3t1barm0781.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "688885675400-7nm6c8lhg3vvodgl6hrcapkeb9tgmros.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.makyara"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688885675400:android:a2d4aa70431a09ed27b63d",
+        "android_client_info": {
+          "package_name": "com.example.duka_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688885675400-arr17i5iadantcv8b6upq3t1barm0781.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2E69A8PyxwCANpaSouxw4uuzOI1b7Dtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688885675400-arr17i5iadantcv8b6upq3t1barm0781.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "688885675400-7nm6c8lhg3vvodgl6hrcapkeb9tgmros.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.makyara"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688885675400:android:30af3da7eef071da27b63d",
+        "android_client_info": {
+          "package_name": "com.example.makyara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688885675400-arr17i5iadantcv8b6upq3t1barm0781.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2E69A8PyxwCANpaSouxw4uuzOI1b7Dtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688885675400-arr17i5iadantcv8b6upq3t1barm0781.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "688885675400-7nm6c8lhg3vvodgl6hrcapkeb9tgmros.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.makyara"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
