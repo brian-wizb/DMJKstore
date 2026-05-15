@@ -36,11 +36,6 @@ This project demonstrates end-to-end mobile product engineering skills:
 - Order monitoring screen
 - Push notifications for newly submitted orders
 
-## Screenshots
-
-| Product Detail (Previous Layout) | Product Detail (Current Layout) |
-| --- | --- |
-| ![Product Detail Previous](assets/images/Screenshot_20260515_145934.jpg) | ![Product Detail Current](assets/images/Screenshot_20260515_154646.jpg) |
 
 ## Tech Stack
 
