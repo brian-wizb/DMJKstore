@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 
@@ -30,9 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Product>? _filteredProductsCache;
   String? _lastSearchQuery;
-
-  final String _openAiApiKey =
-      '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';
 
   void _onNavTapped(int index) {
     setState(() {
@@ -88,46 +85,25 @@ class _HomeScreenState extends State<HomeScreen> {
       final compressedBytes = await _compressImage(File(pickedImage.path));
       final base64Image = base64Encode(compressedBytes);
 
-      final response = await http.post(
-        Uri.parse('https://api.openai.com/v1/chat/completions'),
-        headers: {
-          'Authorization': 'Bearer $_openAiApiKey',
-          'Content-Type': 'application/json',
-        },
-        body: jsonEncode({
-          "model": "gpt-4o",
-          "messages": [
-            {
-              "role": "user",
-              "content": [
-                {
-                  "type": "text",
-                  "text":
-                      "What product is in this image? Reply with a short product name like 'HP Laptop', 'Nike Shoes', or 'Red Apple'.",
-                },
-                {
-                  "type": "image_url",
-                  "image_url": {"url": "data:image/jpeg;base64,$base64Image"}
-                }
-              ]
-            }
-          ],
-          "max_tokens": 30,
-        }),
-      );
+      final callable = FirebaseFunctions.instanceFor(region: 'us-central1')
+          .httpsCallable('identifyProductFromImage');
+      final result = await callable.call({'imageBase64': base64Image});
+      final data = Map<String, dynamic>.from(result.data as Map);
+      final label = (data['label'] ?? '').toString().trim();
 
-      if (response.statusCode == 200) {
-        final result = jsonDecode(response.body);
-        final label = result['choices'][0]['message']['content'].trim();
-        final cleanedLabel = _normalizeLabel(label);
-        debugPrint("🧠 Identified: $label → $cleanedLabel");
-
-        _setStatusMessage('Matching with store products...');
-        await _matchProducts(cleanedLabel);
-      } else {
-        debugPrint("❌ OpenAI request failed: ${response.body}");
+      if (label.isEmpty) {
         _setStatusMessage("Failed to analyze image. Try again.");
+        return;
       }
+
+      final cleanedLabel = _normalizeLabel(label);
+      debugPrint("🧠 Identified: $label -> $cleanedLabel");
+
+      _setStatusMessage('Matching with store products...');
+      await _matchProducts(cleanedLabel);
+    } on FirebaseFunctionsException catch (e) {
+      debugPrint("❌ Function error: ${e.code} ${e.message}");
+      _setStatusMessage("Image analysis unavailable right now.");
     } catch (e) {
       debugPrint("❌ Error: $e");
       _setStatusMessage("An error occurred during analysis.");
